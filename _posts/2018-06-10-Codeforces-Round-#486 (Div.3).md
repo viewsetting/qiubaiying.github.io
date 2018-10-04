@@ -1,14 +1,16 @@
 ---
 layout:     post
-title:     CF Round #486(Div.3)  题解 
-date:       2018-06-10
-author:     viewsetting
-header-img: img/post-adjani.jpg
+title:      ReactiveCocoa 进阶
+subtitle:   函数式编程框架 ReactiveCocoa 进阶
+date:       2017-01-06
+author:     BY
+header-img: img/post-bg-ios9-web.jpg
 catalog: true
 tags:
-    - CodeForces
-    - C/C++
-    -算法竞赛
+    - iOS
+    - ReactiveCocoa
+    - 函数式编程
+    - 开源框架
 ---
 #### 太菜了，比赛的时候只A了两题，气气。 
 
