@@ -18,7 +18,7 @@ tags:
 水题
 
 
-{% highlight C++ %}
+```C++
 #include<bits/stdc++.h>
 using namespace std;
 vector<int> rec[103];
@@ -53,7 +53,7 @@ int main()
     else cout<<"NO";
     return 0;
 }
-{% endhighlight%}
+```
 
 
 ###  [B. Substrings Sort](http://codeforces.com/contest/988/problem/B)
