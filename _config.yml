@@ -23,7 +23,7 @@ zhihu_username:     chen-zhen-hao-19
 github_username:    viewsetting
 #facebook_username:  baiying.qiu.7
 #jianshu_username:   e71990ada2fd
-#twitter_username:   qiubaiying
+twitter_username:   DavisChan1998
 
 
 
@@ -77,8 +77,8 @@ gitalk:
 #ba_track_id: b50bf2b12b5338a1845e33832976fd68
 
 # Google Analytics
-#ga_track_id: 'UA-90855596-1'            # Format: UA-xxxxxx-xx
-#ga_domain:auto              # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+ga_track_id: 'UA-127060267-1'            # Format: UA-xxxxxx-xx
+ga_domain:auto              # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
@@ -99,9 +99,19 @@ service-worker: true
 # Friends
 friends: [
  {
-        title: "Apple",
-        href: "https://apple.com"
-    },{
+        title: "WDNB的Blog",
+        href: "https://zoomdong.site"
+    },
+ {
+        title: "Luer:Humble Code Apprentice",
+        href: "https://luer.cf"
+    }
+    ,
+ {
+        title: "PerfectPan",
+        href: "https://www.perfectpan.org"
+    },
+    {
         title: "Apple Developer",
         href: "https://developer.apple.com/"
     }
