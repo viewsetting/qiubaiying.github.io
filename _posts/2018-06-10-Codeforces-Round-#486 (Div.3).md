@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Codeforces-Round-#486 (Div.3)
+title:      Codeforces Round #486 (Div.3)
 subtitle:   A,B,C,D题解
 date:       2018-06-10
 author:     viewsetting
