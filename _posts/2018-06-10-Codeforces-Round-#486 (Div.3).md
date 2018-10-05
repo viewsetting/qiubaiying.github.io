@@ -17,7 +17,7 @@ tags:
 ### [A. Diverse Team](http://codeforces.com/contest/988/problem/A)
 水题
 
-```C++
+
 {% highlight C++ %}
 #include<bits/stdc++.h>
 using namespace std;
@@ -54,7 +54,7 @@ int main()
     return 0;
 }
 {% endhighlight%}
-```
+
 
 ###  [B. Substrings Sort](http://codeforces.com/contest/988/problem/B)
 
