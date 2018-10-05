@@ -10,7 +10,7 @@ tags:
     - CodeForces
     - C/C++
     - Algorithm
-    - ICPC/ACM
+    - ICPC-ACM
 ---
 #### 太菜了，比赛的时候只A了两题，气气。 
 
