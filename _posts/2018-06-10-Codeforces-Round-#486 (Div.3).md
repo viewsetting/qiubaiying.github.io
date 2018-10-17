@@ -15,7 +15,7 @@ tags:
 #### 太菜了，比赛的时候只A了两题，气气。 
 
 ### [A. Diverse Team](http://codeforces.com/contest/988/problem/A)
-水题
+# 水题
 
 
 ```C++
