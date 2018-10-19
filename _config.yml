@@ -61,7 +61,7 @@ kramdown:
 
 # Gitalk
 gitalk:
-  enable: false    #是否开启Gitalk评论
+  enable: True    #是否开启Gitalk评论
   clientID: 5eeb169863955b40df52                           #生成的clientID
   clientSecret: 4bfc08478c50c50b883700729d9c66cfaec17b65   #生成的clientSecret
   repo: viewsetting.github.io    #仓库名称
@@ -76,9 +76,9 @@ gitalk:
 # Baidu Analytics
 #ba_track_id: b50bf2b12b5338a1845e33832976fd68
 
-Google Analytics
-ga_track_id: 'UA-127060267-1'            # Format: UA-xxxxxx-xx
-ga_domain:auto              # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+#Google Analytics
+#ga_track_id: 'UA-127060267-1'            # Format: UA-xxxxxx-xx
+#ga_domain:auto              # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
