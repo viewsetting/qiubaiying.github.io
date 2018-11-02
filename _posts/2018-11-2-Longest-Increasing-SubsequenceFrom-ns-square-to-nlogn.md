@@ -55,7 +55,7 @@ print('len_of_LIS & LIS :',longest_increasing_subsequence(lst))
 
 # $N\log N$ Implement
 
-Considering a case that two LIS that share the same length, which should be more potential to be the LIS of the whole seq? U can guess that it must be the one which ended with the smaller number. Because in this situation,it does not matter if a number with smaller value appears later than a previous larger one. Only value of the node is the key to construct an increasing sequence. Therefore we can use another list or array $dp_i$, which means the end number of the LIS whose size is $i$ . We can simply scan the original seq $a$,then if $a_i$ is larger than the latest largest $dp_k$ ,update $dp_{k+1}$ as $a_i$  . If not, use binary search to find a $dp_J$ that is the smallest one larger than $a_i$, replace it as $a_i$.
+Considering a case that two LIS that share the same length, which should be more potential to be the LIS of the whole seq? U can guess that it must be the one which ended with the smaller number. Because in this situation,it does not matter if a number with smaller value appears later than a previous larger one. Only value of the node is the key to construct an increasing sequence. Therefore we can use another list or array $dp_i$, which means the end number of the LIS whose size is $i$ . We can simply scan the original seq $a$,then if $a_i$ is larger than the latest largest $dp_k$ ,update $dp_{k+1}$ as $a_i$  . If not, use binary search to find a $dp_J$ that is the smallest one larger than $a_i$, replace it with $a_i$.
 
 ```python
 import bisect
