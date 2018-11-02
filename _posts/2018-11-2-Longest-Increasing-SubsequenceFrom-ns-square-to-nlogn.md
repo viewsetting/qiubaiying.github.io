@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Longest Increasing Subsequence:From n's square to nlogn
-subtitle:   Python算法实现
+subtitle:   Algo demo with Python
 date:       2018-11-2s
 author:     viewsetting
 header-img: img/post-adjani.jpg
