@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      LeetCode #969 Pancake Sorting
+title:      LeetCode 969 Pancake Sorting
 subtitle:   Solution of C++
 date:       2019-05-17
 author:     viewsetting
