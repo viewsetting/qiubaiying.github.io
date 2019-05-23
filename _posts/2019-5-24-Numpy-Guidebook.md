@@ -1,6 +1,6 @@
 ---
-layout:     post
-title:     Numpy Guidebook
+layout:  post
+title:	Numpy-Guidebook
 subtitle:  A Memo
 date:       2019-05-24
 author:     viewsetting
