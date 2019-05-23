@@ -2,7 +2,7 @@
 layout:     post
 title:     Numpy Guidebook
 subtitle:  A Memo
-date:       2019-5-24
+date:       2019-05-24
 author:     viewsetting
 header-img: img/post-adjani.jpg
 catalog: true
