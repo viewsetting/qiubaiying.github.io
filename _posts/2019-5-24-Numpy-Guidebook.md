@@ -114,9 +114,9 @@ d:
 
 ##### Distribution
 
-prng.chisquare(1, size=(2, 2)) # 卡方分布
-prng.standard_t(1, size=(2, 3)) # t 分布
-prng.poisson(5, size=10)         # 泊松分布
+- prng.chisquare(1, size=(2, 2)) # 卡方分布
+- prng.standard_t(1, size=(2, 3)) # t 分布
+- prng.poisson(5, size=10)         # 泊松分布
 
 ```python
 e=np.random.poisson(14,size=10000)
