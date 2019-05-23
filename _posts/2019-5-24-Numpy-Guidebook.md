@@ -1,16 +1,16 @@
 ---
-layout:  post
-title:	Numpy-Guidebook
-subtitle:  A Memo
+layout:     post
+title:     Numpy Guidebook
+subtitle:   A Memo
 date:       2019-05-24
 author:     viewsetting
 header-img: img/post-adjani.jpg
 catalog: true
 tags:
-    - Notes
+    - Note
+    - Python
     - Numpy
-	- Python
-	- Matplotlib
+    - Matplotlib
 ---
 
 # Basic
