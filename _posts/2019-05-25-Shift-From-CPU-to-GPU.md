@@ -1,16 +1,16 @@
 ---
-layout:  post
-title:  Shift From CPU to GPU
-subtitle:   PyTorch Note
+layout:     post
+title:      Shift from CPU to GPU
+subtitle:   PyTorch Notes
 date:       2019-05-25
 author:     viewsetting
-header-img: img/tag-bg-o.jpg
+header-img: img/post-adjani.jpg
 catalog: true
 tags:
+    - Python
+    - PyTorch
+    - Notes
     - Deep Learning
-    - Pytorch
-	- Note
-	- CUDA
 ---
 
 # Check CUDA status
