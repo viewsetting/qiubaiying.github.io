@@ -20,7 +20,7 @@ if torch.cuda.is_available():
     print("CUDA is READY")
 ```
 
-![1558779896716](/tmp/2019-05-25/1558779896716.png)
+![1558779896716](/img/2019-05-25/1558779896716.png)
 
 # Model
 
