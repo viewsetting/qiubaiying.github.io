@@ -1,6 +1,6 @@
 ---
-layout:     post
-title:      Shift From CPU to GPU
+layout:  post
+title:  Shift From CPU to GPU
 subtitle:   PyTorch Note
 date:       2019-05-25
 author:     viewsetting
@@ -20,7 +20,7 @@ if torch.cuda.is_available():
     print("CUDA is READY")
 ```
 
-![1558779896716](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\1558779896716.png)
+![1558779896716](/tmp/2019-05-25/1558779896716.png)
 
 # Model
 
