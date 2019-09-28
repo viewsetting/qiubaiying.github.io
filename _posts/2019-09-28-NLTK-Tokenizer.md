@@ -4,7 +4,7 @@ title:      NLTK Tokenizer
 subtitle:   notes
 date:       2019-09-28
 author:     viewsetting
-header-img: img/Pytorch-banner.png
+header-img: img/NLTK.png
 catalog: true
 tags:
 	- note
