@@ -7,8 +7,8 @@ author:     viewsetting
 header-img: img/NLTK.png
 catalog: true
 tags:
-	- note
-	- NLTK
+- note
+- NLTK
 ---
 
 # nltk.tokenize
