@@ -8,7 +8,7 @@ header-img: img/NLTK.png
 catalog: true
 tags:
 	- note
-    - NLTK
+	- NLTK
 ---
 
 # nltk.tokenize
