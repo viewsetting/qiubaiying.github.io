@@ -8,8 +8,8 @@ header-img: img/Pytorch-banner.png
 catalog: true
 tags:
     - NLP
-	- Attention Mechanism
-	- Transformer
+    - Attention Mechanism
+    - Transformer
     - PyTorch
 ---
 
