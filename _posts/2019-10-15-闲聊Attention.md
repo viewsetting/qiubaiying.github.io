@@ -15,7 +15,7 @@ tags:
 
 ## 实验目的
 
-比较三种Attention机制在机器翻译任务上的表现。分别为：Bahdanau Attention[(D Bahdanau et al. ,2025)](https://arxiv.org/abs/1409.0473 )，Convolutional Attention[(Jonas Gehring et al., 2017)](https://arxiv.org/abs/1705.03122)，以及基于Self Attention机制的Transformer[(Vaswani et al.)](http://viewsetting.xyz/2019/10/14/2019-10-15-%E9%97%B2%E8%81%8AAttention/)。
+比较三种Attention机制在机器翻译任务上的表现。分别为：Bahdanau Attention[(D Bahdanau et al. ,2015)](https://arxiv.org/abs/1409.0473 )，Convolutional Attention[(Jonas Gehring et al. , 2017)](https://arxiv.org/abs/1705.03122)，以及基于Self Attention机制的Transformer[(Vaswani et al. ,2017)](http://viewsetting.xyz/2019/10/14/2019-10-15-%E9%97%B2%E8%81%8AAttention/)。
 
 ​              
 
