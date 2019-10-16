@@ -45,7 +45,7 @@ BERT_PRETRAINED_MODEL_ARCHIVE_MAP = {
 
 选择想要下载的模型对应的地址复制到浏览器，打开地址即可开始下载。
 
-![1](/home/viewsetting/viewsetting.github.io/img/2019-10-17/1.png)
+![1](/img/2019-10-17/1.png)
 
 然后选择一个文件夹放入下载完的bin模型备用。
 
@@ -75,11 +75,11 @@ BERT_PRETRAINED_MODEL_ARCHIVE_MAP = {
 
 将上述两个文件保存至文件夹后，将.bin后缀的模型参数文件改为`pytorch_model.bin`，而另一个json文件则重命名为config.json。
 
-![3](/home/viewsetting/viewsetting.github.io/img/2019-10-17/3.png)
+![3](/img/2019-10-17/3.png)
 
 原因见源码：<https://github.com/huggingface/transformers/blob/master/transformers/file_utils.py> line: 70
 
-![2](/home/viewsetting/viewsetting.github.io/img/2019-10-17/2.png)
+![2](/img/2019-10-17/2.png)
 
 由此也可见tensorflow模型的参数文件的默认命名，这样我们就可以通过传递文件夹路径的方式直接调用BertModel。
 
@@ -97,7 +97,7 @@ bert_uncased = BertModel.from_pretrained(model_path)
 
 我们讲第一部分中的地址搬过来，将最后的文件名换成`vocab.txt`，我们就又得到了官方模型对应的词汇表文件。如：<https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt>这个就是ber-base-uncased的vocab文件，打开后长这样：
 
-![4](/home/viewsetting/viewsetting.github.io/img/2019-10-17/4.png)
+![4](/img/2019-10-17/4.png)
 
 然后我们复制到一个文件夹中，并重命名为`vocab.txt`，当然你也可以不重命名，区别在于：重命名后可以直接制定文件夹作为参数初始化`BertTokenizer`，这样就会自动读取文件夹中的`vocab.txt`作为词汇表，而且还有一些控制的json文件也可以一起读入。命名规则如下：<https://github.com/huggingface/transformers/blob/master/transformers/tokenization_utils.py> line: 35
 
