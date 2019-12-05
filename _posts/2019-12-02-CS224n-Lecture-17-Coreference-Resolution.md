@@ -165,8 +165,6 @@ $$
 
 故，这里的$s_m(i)$是$span_i$的mention得分，$s_a(i,j)$是$span_j$是$span_i$的antecedent的得分。
 
-![截屏2019-12-05下午10.10.21](/img/2019-12-05/model.jpeg)
-
 ### score函数网络
 
 $$
@@ -205,6 +203,7 @@ $$
 $$
 \mathbf{g_i} = [x^{\ast}_{START(i)},x^{\ast}_{END(i)},\widehat{x}_i,\phi(i)]
 $$
+![截屏2019-12-05下午10.10.21](/img/2019-12-05/model.jpeg)
 
 ## Inference & Learning
 
