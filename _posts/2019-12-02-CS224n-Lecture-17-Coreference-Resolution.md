@@ -128,7 +128,7 @@ $B^3$ eval metric
 
    ![截屏2019-12-05下午6.43.37](/img/2019-12-05/截屏2019-12-05下午6.43.37.png) 
 
-如图所示，对于标红的mention而言，加入左上方的聚类是红色mention的正确集合，那么$precision = 3/3+1$，而$recall = \frac{3}{3+1+1}$。
+如图所示，对于标红的mention而言，加入左上方的聚类是红色mention的正确集合，那么$precision = \frac{3}{3+1}$，而$recall = \frac{3}{3+1+1}$。
 
 # End2End Neural Coreference Resolution
 
@@ -168,6 +168,72 @@ $$
 ### score函数网络
 
 $$
-s_m(i) = \mathbf{w}_m \cdot FFNN_m(\mathbf{g_i})
+s_m(i) = \mathbf{w}_m \cdot FFNN_m(\mathbf{g_i}) \\
+s_a(i,j)  = \mathbf{w_a} \cdot FFNN_a([\mathbf{g_i,g_j,g_i \circ g_j,\phi(i,j)}])
 $$
 
+在这里，$\mathbf{g_i}$表示的是$span_i$的embedding，而$\mathbf{g_i} \circ \mathbf{g_j}$则是这两个$span$的逐元素积，$\phi(i,j)$则是一个特征向量，编码了作者和主题信息以及两个$span$之间的距离信息。
+
+### span的表示
+
+备注：2019年的SpanBERT模型对于该部分进行了改进。
+
+对于预测coref关系而言两种类型的信息很重要：
+
+1. mention span的上下文信息
+2. 其内部的结构
+
+建模方案：使用双向LSTM网络编码span内外的信息，同时加上attention机制。
+
+一个单词的词表示：$x_t^{\ast}$就是将这个lstm对应的$t$位置的前后两个方向的tensor输出拼接起来即可。
+
+至于attention层：
+$$
+\alpha_t = \mathbf{w_{\alpha} \cdot FFNN_{\alpha}(x_t^{\ast})} \\
+a_{i,t} = \frac{exp(\alpha_t)}{\sum_{k = START(i)}^{END(i)}exp(\alpha_{k})} \\
+\widehat{x}_i = \sum_{t = START(i)}^{END(i)} a_{i,t} \cdot x_t
+$$
+
+
+第一个公式：查询$x_t^{\ast}$的attention得分，然后再将所有**span**内时刻的向量的attention得分softMax归一化，最后重组出新的$x_i$，作为这个span的加权平均化的向量表示。
+
+最后我们将一个span的首尾词向量，span的加权词向量还有span的特征向量拼接起来作为这个span最后的表示：
+$$
+\mathbf{g_i} = [x^{\ast}_{START(i)},x^{\ast}_{END(i)},\widehat{x}_i,\phi(i)]
+$$
+
+## Inference & Learning
+
+如果枚举整个模型的话，对于长度为$T$的文本，其复杂度是$O(T^4)$。所以需要在训练和验证时进行剪枝。
+
+- 首先是只考虑最多$L$个词计算mention score。
+- 其次就是减少span个数了，取一个超参数$\lambda$，只保留$\lambda T$个拥有最高的mention score的span，并且对于每个span，我们只考虑最多$K$个antecedent。
+- 最后，对于交叉的span，使用如下方法。按照mention score降序排列一个个选择，除非对于一个$span_i$,已经存在一个被选出的$span_j$，使得$START(i) < START(j) \le END(i)  END(j) \vee START(j) < START(i) \le END(j) < END(i)$，也就是有交叉。
+
+学习的目标函数就是这个对数似然：
+$$
+log \prod_{i = 1}^N \sum_{\widehat{y}\in \mathcal{Y(i)}\cap GOLD(i)} P(\widehat{y})
+$$
+其中$GOLD(i)$就是$span_i$的gold cluster集合。特别的，如果$span_i$不属于任何cluster，或者所有的gold antecedent都被剪枝掉了，那么$GOLD(i) = {\epsilon}$。
+
+这样的话可以使得一开始随机的剪枝得到误差传递，这样模型也就学着合理剪枝，比如$s_m$值是被考虑的。同时之前的将$\epsilon$的mention score归零也确保了只会将非正确的antecedent的分数降低，不会将$\epsilon$的得分升高。
+
+## 实验细节
+
+### 词表示
+
+使用的是固定三百维和五十维的GloVe。而OOV词汇则是用charCNN编码。卷积层的window size有3，4，5，每个都有50个filter。
+
+### 隐藏层
+
+200维度隐藏层的LSTM。每个前馈网络的维度是两个150的线性层。
+
+### 特征向量
+
+将speaker的信息直接二进制位编码，即只有两种情况，$span_i$和$span_j$同属一个speaker，或不同。然后位置信息就直接使用Clark和Manning在2016年使用的方式，考虑向量$[1,2,3,4,5-7,8-15,16-31,32-63-64+]$，这样把speaker，genre，span间距以及mention长度编码为20维的向量。
+
+
+
+
+
+ 
