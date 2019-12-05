@@ -165,6 +165,8 @@ $$
 
 故，这里的$s_m(i)$是$span_i$的mention得分，$s_a(i,j)$是$span_j$是$span_i$的antecedent的得分。
 
+![截屏2019-12-05下午10.10.21](/img/2019-12-05/model.jpeg)
+
 ### score函数网络
 
 $$
@@ -173,6 +175,8 @@ s_a(i,j)  = \mathbf{w_a} \cdot FFNN_a([\mathbf{g_i,g_j,g_i \circ g_j,\phi(i,j)}]
 $$
 
 在这里，$\mathbf{g_i}$表示的是$span_i$的embedding，而$\mathbf{g_i} \circ \mathbf{g_j}$则是这两个$span$的逐元素积，$\phi(i,j)$则是一个特征向量，编码了作者和主题信息以及两个$span$之间的距离信息。
+
+![截屏2019-12-05下午10.11.10](/img/2019-12-05/score.jpeg)
 
 ### span的表示
 
