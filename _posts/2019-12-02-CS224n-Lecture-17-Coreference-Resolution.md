@@ -44,7 +44,7 @@ tags:
 
 在进行这些任务的时候，我们又会遇到一些特例：
 
-*It is funny.* 
+*It is sunny.* 
 
 *Every Student*
 
@@ -233,7 +233,7 @@ $$
 
 ### 特征向量
 
-将speaker的信息直接二进制位编码，即只有两种情况，$span_i$和$span_j$同属一个speaker，或不同。然后位置信息就直接使用Clark和Manning在2016年使用的方式，考虑向量$[1,2,3,4,5-7,8-15,16-31,32-63-64+]$，这样把speaker，genre，span间距以及mention长度编码为20维的向量。
+将speaker的信息直接二进制位编码，即只有两种情况，$span_i$和$span_j$同属一个speaker，或不同。然后位置信息就直接使用Clark和Manning在2016年使用的方式，考虑向量$[1,2,3,4,5-7,8-15,16-31,32-63,64+]$，这样把speaker，genre，span间距以及mention长度编码为20维的向量。
 
 
 
