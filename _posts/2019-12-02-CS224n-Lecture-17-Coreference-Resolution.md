@@ -77,7 +77,7 @@ tags:
 
 那么coref和anaphora的对比图如下：
 
-![](/Users/viewsetting/Pictures/Photos Library.photoslibrary/resources/renders/3/37FEC134-6DCF-4577-BE4F-9FC13D4367D7_1_201_a.jpeg)
+![](/img/2019-12-05/obama.jpeg)
 
 上图展示了coref和anaphora的区别，其中OBAMA表示的是现实世界的前美国总统巴拉克奥巴马，在coref中，就是后半句的Obama和句子开始位置的Barack Obama同时指向了现实世界的实体奥巴马，而anaphora则是前半句中的he指代的就是前面出现的Barack Obama这一Mention，而Barack Obama则会产生一个实体link到实体奥巴马中。
 
@@ -124,4 +124,50 @@ cataphora可以看作为anaphora的逆操作，因为一般情况下，我们都
 
 $B^3$ eval metric
 
-将结果看为一种聚类的话，对于预测出来的一种聚类集合，
+将结果看为一种聚类的话，对于预测出来的一种聚类集合，可以计算其准确率和召回率。
+
+   ![截屏2019-12-05下午6.43.37](/img/2019-12-05/截屏2019-12-05下午6.43.37.png) 
+
+如图所示，对于标红的mention而言，加入左上方的聚类是红色mention的正确集合，那么$precision = 3/3+1$，而$recall = \frac{3}{3+1+1}$。
+
+# End2End Neural Coreference Resolution
+
+## 任务建模
+
+将端到端的coref resolution看作为对所有可能的span的一组决策。输入就是一篇文档$D$，包括了$T$个单词。所以对于文档，我们就会有$\frac{T(T+1)}{2}$个可能的span。然后将文档$D$中的$span_i$由$START(i)$和$END(i)$表示。然后对于拥有相同$START$的span，我们将至用$END(i)$来排序。
+
+那么任务可以这样表达：对于每一个$span_i$来说，我们找到其antecedent $y_i$ 。而$y_i$的antecedent可能的结果的集合可以表示为$\mathcal{y(i)}= {\epsilon,1,...,i-1}，也就是其他所有的位置靠前的span以及不存在antecedent的情况。对于$\epsilon$而言，可能有两种情况。首先就是这个span本身就不是一个entity mention，或者就是这个span虽然是entity mention，但是与先前的任何一个span都没有coref关系。
+
+## 模型
+
+这个模型的建模的分布应该是：
+$$
+P(y_1,...,y_N \mid D) = \prod_{i=1}^{N} P(y_i \mid D)\\
+= \prod_{i=1}^{N} \frac{exp(s(i,y_{i}))}{\sum_{y^{'}\in \mathcal{Y(i)}}exp(s(i,y^{'})) }
+$$
+
+
+其中$s(i,j)$就是$span_i$与$span_j$之间的coref分数。
+
+对于这个pairwise的分数而言，我们需要考虑三个要素：
+
+- $span_i$是否是一个mention
+- $span_j$是否是一个mention
+- $span_j$是否是$span_i$的一个antecedent
+
+$$
+s(i,j) =
+\begin{cases}
+0, &j = \epsilon \\
+s_m(i) + s_m(j)+s_a(i,j),& j\neq \epsilon
+\end{cases}
+$$
+
+故，这里的$s_m(i)$是$span_i$的mention得分，$s_a(i,j)$是$span_j$是$span_i$的antecedent的得分。
+
+### score函数网络
+
+$$
+s_m(i) = \mathbf{w}_m \cdot FFNN_m(\mathbf{g_i})
+$$
+
