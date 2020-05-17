@@ -90,7 +90,7 @@ $$
 - $$tr(X^\top) = tr(X)$$ 转置trace一样
 - $$tr(A+B) = tr(A)+tr(B)$$ 线性拆分
 - $$tr(A^\top B) = tr(B^\top A)$$ 满足交换律
-- $$tr(A^\top (B \circ C)) = tr((A \circ B)^\top C)$$，这里三个矩阵$$A,B,C$$的大小相同。
+- $$tr(A^\top (B \circ C)) = tr((A \circ B)^\top C)$$，这里三个矩阵$$A,B,C$$的大小相同。证明略。
 
 # 举例
 
